@@ -1968,7 +1968,7 @@ export_list() {
 "
   if [ -n "$PORT_HYSTERIA2" ]; then
     [[ -n "$PORT_HOPPING_START" && -n "$PORT_HOPPING_END" ]] && local CLASH_HOPPING=" ports: ${PORT_HOPPING_START}-${PORT_HOPPING_END}, HopInterval: 60,"
-    local CLASH_HYSTERIA2="- {name: \"${NODE_NAME[12]} ${NODE_TAG[1]}\", type: hysteria2, server: ${SERVER_IP}, port: ${PORT_HYSTERIA2},${CLASH_HOPPING} up: \"200 Mbps\", down: \"1000 Mbps\", password: ${UUID[12]}, skip-cert-verify: true}" &&
+    local CLASH_HYSTERIA2="- {name: \"${NODE_NAME[12]} ${NODE_TAG[1]}\", type: hysteria2, server: ${SERVER_IP}, port: ${PORT_HYSTERIA2},${CLASH_HOPPING} up: \"1000 Mbps\", down: \"1000 Mbps\", password: ${UUID[12]}, skip-cert-verify: true}" &&
     local CLASH_SUBSCRIBE+="
   $CLASH_HYSTERIA2
 "
@@ -2335,7 +2335,7 @@ vless://${UUID[20]}@${SERVER_IP_1}:${PORT_GRPC_REALITY}?security=reality&sni=${T
   if [ -n "$PORT_HYSTERIA2" ]; then
     local INBOUND_REPLACE+=" { \"type\": \"hysteria2\", \"tag\": \"${NODE_NAME[12]} ${NODE_TAG[1]}\", \"server\": \"${SERVER_IP}\", \"server_port\": ${PORT_HYSTERIA2},"
     [[ -n "${PORT_HOPPING_START}" && -n "${PORT_HOPPING_END}" ]] && local INBOUND_REPLACE+=" \"server_ports\": [ \"${PORT_HOPPING_START}:${PORT_HOPPING_END}\" ],"
-    local INBOUND_REPLACE+=" \"up_mbps\": 200, \"down_mbps\": 1000, \"password\": \"${UUID[12]}\", \"tls\": { \"enabled\": true, \"insecure\": true, \"server_name\": \"\", \"alpn\": [ \"h3\" ] } },"
+    local INBOUND_REPLACE+=" \"up_mbps\": 1000, \"down_mbps\": 1000, \"password\": \"${UUID[12]}\", \"tls\": { \"enabled\": true, \"insecure\": true, \"server_name\": \"\", \"alpn\": [ \"h3\" ] } },"
     local NODE_REPLACE+="\"${NODE_NAME[12]} ${NODE_TAG[1]}\","
   fi
 
@@ -2419,10 +2419,10 @@ $SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2
 
 $(text 80) QRcode:
 $(text 82) 1:
-https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto
+https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto
 
 $(text 82) 2:
-https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2
+https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2
 
 $(text 82) 1:
 $(${WORK_DIR}/qrencode "$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto")
@@ -2525,10 +2525,10 @@ $SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2
 
  $(text 80) QRcode:
 $(text 82) 1:
-https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto
+https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto
 
 $(text 82) 2:
-https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2")
+https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=$SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto2")
 
 $(hint "$(text 82) 1:")
 $(${WORK_DIR}/qrencode $SUBSCRIBE_ADDRESS/${UUID_CONFIRM}/auto)
